@@ -1,0 +1,91 @@
+CREATE TABLE Houses
+(HouseID INT NOT NULL PRIMARY KEY,
+HouseName NVARCHAR(100) NOT NULL);
+
+CREATE TABLE Students
+(StudentID INT NOT NULL PRIMARY KEY,
+FirstName NVARCHAR(100) NOT NULL,
+LastName NVARCHAR(100) NOT NULL,
+BirthYear DATE,
+HouseID INT NOT NULL FOREIGN KEY REFERENCES Houses(HouseID));
+
+CREATE TABLE Subjects
+(SubjectID INT NOT NULL PRIMARY KEY,
+SubjectName NVARCHAR(100) NOT NULL UNIQUE,
+Descriptiom NVARCHAR(500))
+
+CREATE TABLE Professors
+(ProfessorID INT NOT NULL PRIMARY KEY,
+FirstName NVARCHAR(100) NOT NULL,
+LasttName NVARCHAR(100) NOT NULL,
+SubjectID INT NOT NULL FOREIGN KEY REFERENCES Subjects(SubjectID),
+HouseID INT NOT NULL FOREIGN KEY REFERENCES Houses(HouseID));
+
+INSERT INTO Houses VALUES(1, 'Gryffindor')
+INSERT INTO Houses VALUES(2, 'Ravenclaw')
+INSERT INTO Houses VALUES(3, 'Slytherin')
+INSERT INTO Houses VALUES(4, 'Hufflepuff')
+
+INSERT INTO Students VALUES(1, 'Harry', 'Potter', '1980', 1)
+INSERT INTO Students VALUES(2, 'Hermione', 'Granger', '1980', 1)
+INSERT INTO Students VALUES(3, 'Ronald', 'Weasley', '1980', 1)
+INSERT INTO Students VALUES(4, 'Seamus', 'Finnegan', '1980', 1)
+INSERT INTO Students VALUES(5, 'Dean', 'Thomas', '1980', 1)
+INSERT INTO Students VALUES(6, 'Neville', 'Longbottom', '1980', 1)
+INSERT INTO Students VALUES(7, 'Lavander', 'Brown', '1980', 1)
+INSERT INTO Students VALUES(8, 'Parvati', 'Patil', '1980', 1)
+INSERT INTO Students VALUES(9, 'Draco', 'Malfoy', '1980', 3)
+INSERT INTO Students VALUES(10, 'Gregory', 'Goyle', '1980', 3)
+INSERT INTO Students VALUES(12, 'Vincent', 'Crabbe', '1980', 3)
+INSERT INTO Students VALUES(13, 'Pansy', 'Parkinson', '1980', 3)
+INSERT INTO Students VALUES(14, 'Millicent', 'Bulstrode', '1980', 3)
+INSERT INTO Students VALUES(15, 'Blaise', 'Zabni', '1980', 3)
+INSERT INTO Students VALUES(16, 'Hannah', 'Abbot', '1980', 4)
+INSERT INTO Students VALUES(17, 'Ernie', 'McMillian', '1980', 4)
+INSERT INTO Students VALUES(18, 'Susan', 'Bones', '1980', 4)
+INSERT INTO Students VALUES(19, 'Padma', 'Patil', '1980', 2)
+INSERT INTO Students VALUES(20, 'Ginny', 'Weasley', '1981', 1)
+INSERT INTO Students VALUES(21, 'Luna', 'Lovegood', '1981', 2)
+INSERT INTO Students VALUES(22, 'Colin', 'Creevey', '1981', 1)
+INSERT INTO Students VALUES(23, 'Fred', 'Weasley', '1978', 1)
+INSERT INTO Students VALUES(24, 'George', 'Weasley', '1978', 1)
+INSERT INTO Students VALUES(25, 'Oliver', 'Wood', '1976', 1)
+INSERT INTO Students VALUES(26, 'Cedric', 'Diggory', '1977', 4)
+INSERT INTO Students VALUES(27, 'Cho', 'Chang', '1979', 2)
+INSERT INTO Students VALUES(28, 'Theodore', 'Nott', '1979', 3)
+
+INSERT INTO Subjects VALUES(1, 'Transfiguration', 'Transfiguration was a very difficult theory-based subject that practised the art of changing the form or appearance of an object, as well as changing it back')
+INSERT INTO Subjects VALUES(2, 'Potions', 'Potions was the exact art and subtle science of creating various liquid mixtures with different magical effects, many of which could not be achieved through spells.')
+INSERT INTO Subjects VALUES(3, 'Defense Against The Dark Arts', 'Defence Against the Dark Arts was the class that taught students how to protect themselves against the Dark Arts,how to use offencive and protective spells')
+INSERT INTO Subjects VALUES(4, 'Charms', 'Charms comprised of a very wide range of different spells concerned with giving a target new and unexpected properties and/or making the target perform certain actions, among other possible effects')
+INSERT INTO Subjects VALUES(5, 'Herbology', 'Herbology was the study of magical plants and fungi. Students learned how to properly care for and utilise different plants')
+INSERT INTO Subjects VALUES(6, 'Care Of Magical Creatures', 'Care of Magical Creatures, also known as Creature Care, and formerly called Beasts class, was a class which instructed students about various magical beasts')
+INSERT INTO Subjects VALUES(7, 'Divination', 'Divination was the art of predicting the future')
+INSERT INTO Subjects VALUES(8, 'Astronomy', 'Astronomy involved observation of the night skies with telescopes, as well as gaining an understanding of the various phenomena that go on in space, such as Lunar phases and Space weather.')
+INSERT INTO Subjects VALUES(9, 'Acient Rhunes', 'Study of Ancient Runes was a theoretical subject that involved the study and translation of ancient runic scripts.')
+INSERT INTO Subjects VALUES(10, 'Muggle Studies', 'Muggle Studies was a class that taught about how Muggles lived their lives, as well as various Muggle inventions and their use of electricity.')
+
+INSERT INTO Professors VALUES(1, 'Albus', 'Dumbledore', 1, 1)
+INSERT INTO Professors VALUES(2, 'Minerva', 'McGonagall', 1, 1)
+INSERT INTO Professors VALUES(3, 'Filius', 'Flitwick', 4, 2)
+INSERT INTO Professors VALUES(4, 'Pomona', 'Sprout', 5, 4)
+INSERT INTO Professors VALUES(5, 'Severus', 'Snape', 2, 3)
+INSERT INTO Professors VALUES(6, 'Rubeus', 'Hagrid', 6, 1)
+INSERT INTO Professors VALUES(7, 'Sybill', 'Trewlaney', 7, 2)
+INSERT INTO Professors VALUES(8, 'Aurora', 'Sinistra', 8, 2)
+INSERT INTO Professors VALUES(9, 'Firenzee', 'The Centaur', 9, 1)
+INSERT INTO Professors VALUES(10, 'Charity', 'Burbage', 10, 4)
+INSERT INTO Professors VALUES(11, 'Remus', 'Lupn', 3, 1)
+INSERT INTO Professors VALUES(12, 'Gilderoy', 'Lockhart', 3, 2)
+INSERT INTO Professors VALUES(13, 'Dolores', 'Umbridge', 3, 4)
+
+
+
+
+CREATE TABLE QuidditchAnualPass
+(PersonID int IDENTITY(1,1) NOT NULL PRIMARY KEY,
+FirstName NVARCHAR(50) NOT NULL,
+LastName NVARCHAR(50)NOT NULL)
+
+INSERT INTO QuidditchAnualPass (FirstName,LastName) VALUES ('Oliver','Wood');
+INSERT INTO QuidditchAnualPass (FirstName,LastName) VALUES ('Ludo','Bagman');
